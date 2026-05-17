@@ -1,0 +1,145 @@
+# Per-topic official sources. Keyed by output/ directory name.
+# Every URL is WebFetch-verified to resolve to its official source.
+
+retrieval-augmented-generation:
+  sources:
+    - title: "Lewis et al. (2020) — Retrieval-Augmented Generation (original paper)"
+      url: https://arxiv.org/abs/2005.11401
+      note: "The paper that formalized RAG"
+    - title: "LangChain — RAG tutorial"
+      url: https://python.langchain.com/docs/tutorials/rag/
+    - title: "LlamaIndex — documentation"
+      url: https://docs.llamaindex.ai/en/stable/
+    - title: "Anthropic — Contextual Retrieval"
+      url: https://www.anthropic.com/news/contextual-retrieval
+    - title: "Pinecone — Retrieval-Augmented Generation guide"
+      url: https://www.pinecone.io/learn/retrieval-augmented-generation/
+
+fine-tuning-llm:
+  sources:
+    - title: "Hugging Face — PEFT documentation"
+      url: https://huggingface.co/docs/peft/index
+    - title: "Hu et al. (2021) — LoRA paper"
+      url: https://arxiv.org/abs/2106.09685
+    - title: "Dettmers et al. (2023) — QLoRA paper"
+      url: https://arxiv.org/abs/2305.14314
+    - title: "Hugging Face — Training & fine-tuning guide"
+      url: https://huggingface.co/docs/transformers/training
+    - title: "Hugging Face — TRL (SFT, DPO, reward modeling)"
+      url: https://huggingface.co/docs/trl/index
+
+llm-serving-inference:
+  sources:
+    - title: "vLLM — documentation"
+      url: https://docs.vllm.ai/en/latest/
+    - title: "Kwon et al. (2023) — PagedAttention / vLLM paper"
+      url: https://arxiv.org/abs/2309.06180
+    - title: "Hugging Face — Text Generation Inference (TGI)"
+      url: https://huggingface.co/docs/text-generation-inference/index
+    - title: "NVIDIA — TensorRT-LLM"
+      url: https://github.com/NVIDIA/TensorRT-LLM
+    - title: "Ray Serve — documentation"
+      url: https://docs.ray.io/en/latest/serve/index.html
+
+agentic-design-patterns:
+  sources:
+    - title: "Anthropic — Building effective agents"
+      url: https://www.anthropic.com/research/building-effective-agents
+    - title: "Yao et al. (2022) — ReAct paper"
+      url: https://arxiv.org/abs/2210.03629
+    - title: "LangGraph — documentation"
+      url: https://langchain-ai.github.io/langgraph/
+    - title: "Anthropic — Tool use (function calling) overview"
+      url: https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview
+
+cost-optimization-ai-pipeline:
+  sources:
+    - title: "Anthropic — Prompt caching"
+      url: https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching
+    - title: "Anthropic — Message Batches API"
+      url: https://docs.anthropic.com/en/docs/build-with-claude/batch-processing
+    - title: "Hugging Face — Quantization (memory & cost reduction)"
+      url: https://huggingface.co/docs/transformers/quantization
+    - title: "AWS — Machine Learning Lens (Well-Architected)"
+      url: https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html
+
+mlops:
+  sources:
+    - title: "Google Cloud — MLOps: continuous delivery & automation pipelines"
+      url: https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning
+    - title: "Sculley et al. (2015) — Hidden Technical Debt in ML Systems"
+      url: https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html
+    - title: "MLflow — documentation"
+      url: https://mlflow.org/docs/latest/index.html
+    - title: "Feast — feature store documentation"
+      url: https://docs.feast.dev/
+    - title: "Evidently — ML monitoring documentation"
+      url: https://docs.evidentlyai.com/
+
+evals-in-ai:
+  sources:
+    - title: "Anthropic — Create strong empirical evaluations"
+      url: https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests
+    - title: "OpenAI — Evals framework"
+      url: https://github.com/openai/evals
+    - title: "Stanford CRFM — HELM benchmark"
+      url: https://crfm.stanford.edu/helm/
+    - title: "EleutherAI — lm-evaluation-harness"
+      url: https://github.com/EleutherAI/lm-evaluation-harness
+
+precision-recall-f1-and-ai-metrics:
+  sources:
+    - title: "scikit-learn — Model evaluation: metrics"
+      url: https://scikit-learn.org/stable/modules/model_evaluation.html
+    - title: "Google — ML Crash Course: Accuracy, precision, recall"
+      url: https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall
+    - title: "scikit-learn — Precision-Recall example"
+      url: https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html
+    - title: "Wikipedia — F-score"
+      url: https://en.wikipedia.org/wiki/F-score
+
+event-driven-architecture:
+  sources:
+    - title: "Martin Fowler — What do you mean by Event-Driven?"
+      url: https://martinfowler.com/articles/201701-event-driven.html
+    - title: "AWS — Event-driven architecture"
+      url: https://aws.amazon.com/event-driven-architecture/
+    - title: "microservices.io — Saga pattern"
+      url: https://microservices.io/patterns/data/saga.html
+    - title: "Confluent — Event-driven architecture"
+      url: https://www.confluent.io/learn/event-driven-architecture/
+
+data-driven-architecture:
+  sources:
+    - title: "Martin Fowler — Data Mesh principles"
+      url: https://martinfowler.com/articles/data-mesh-principles.html
+    - title: "Zhamak Dehghani — How to move beyond a monolithic data lake"
+      url: https://martinfowler.com/articles/data-monolith-to-mesh.html
+    - title: "dbt — Data contracts"
+      url: https://docs.getdbt.com/docs/collaborate/govern/model-contracts
+    - title: "AWS — Analytics Lens (Well-Architected)"
+      url: https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/analytics-lens.html
+
+solid-principles-in-python:
+  sources:
+    - title: "Robert C. Martin — The SOLID Relevance"
+      url: https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html
+    - title: "Wikipedia — SOLID"
+      url: https://en.wikipedia.org/wiki/SOLID
+    - title: "Real Python — SOLID principles in Python"
+      url: https://realpython.com/solid-principles-python/
+    - title: "Python docs — typing.Protocol (structural subtyping)"
+      url: https://docs.python.org/3/library/typing.html#typing.Protocol
+    - title: "Python docs — abc (abstract base classes)"
+      url: https://docs.python.org/3/library/abc.html
+
+top-5-design-patterns-in-python:
+  sources:
+    - title: "Refactoring.Guru — Design Patterns catalog"
+      url: https://refactoring.guru/design-patterns
+    - title: "Refactoring.Guru — Design Patterns in Python"
+      url: https://refactoring.guru/design-patterns/python
+    - title: "python-patterns — community pattern collection"
+      url: https://github.com/faif/python-patterns
+    - title: "Wikipedia — Design Patterns (Gang of Four)"
+      url: https://en.wikipedia.org/wiki/Design_Patterns

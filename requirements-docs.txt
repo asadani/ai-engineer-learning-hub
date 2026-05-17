@@ -1,0 +1,6 @@
+# Docs site build (separate from the prep-master tool runtime deps)
+mkdocs-material>=9.5
+mkdocs-awesome-pages-plugin>=2.9
+mkdocs-with-pdf>=0.9.3
+pymdown-extensions>=10.7
+PyYAML>=6.0

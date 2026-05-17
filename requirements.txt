@@ -1,0 +1,5 @@
+anthropic>=0.79.0
+click>=8.2
+python-dotenv>=1.0
+rich>=13.9
+nest-asyncio>=1.6

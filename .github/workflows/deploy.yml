@@ -1,0 +1,61 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # WeasyPrint system libs — the with-pdf plugin imports WeasyPrint at
+      # mkdocs startup, so these are required even for the no-PDF strict build.
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz0b \
+            libffi-dev libjpeg-dev fonts-liberation
+      - run: pip install -r requirements-docs.txt
+      - run: python scripts/build_docs.py
+      # 1) Strict validation gate — default config, no PDF, fast; fails the
+      #    build on any broken link / nav issue. Produces ./site (HTML).
+      - run: mkdocs build --strict
+      # 2) Final build WITH the combined PDF (separate config). If PDF
+      #    assembly fails, fall back to the validated HTML so the site
+      #    always publishes — a PDF hiccup never takes the hub down.
+      - run: |
+          cp -r site /tmp/site_html
+          if ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs.pdf.yml; then
+            echo "PDF build OK"
+            test -f site/pdf/ai-engineer-learning-hub.pdf && echo "PDF present"
+          else
+            echo "::warning::PDF build failed — publishing HTML only"
+            rm -rf site && cp -r /tmp/site_html site
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

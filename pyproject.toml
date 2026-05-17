@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prep-master"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.79.0",
+    "click>=8.2",
+    "python-dotenv>=1.0",
+    "rich>=13.9",
+    "nest-asyncio>=1.6",
+]
+
+[project.scripts]
+prep-master = "prep_master.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["prep_master*"]

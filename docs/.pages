@@ -1,0 +1,9 @@
+nav:
+  - Home: index.md
+  - llm-engineering
+  - agents-orchestration
+  - ml-platform-ops
+  - architecture
+  - software-design
+  - Glossary: glossary.md
+  - Free Courses & Certs: courses.md

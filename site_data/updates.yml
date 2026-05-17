@@ -1,0 +1,86 @@
+# Append-only "2026 Update" callouts for existing topics whose content
+# predates fast-moving 2026 developments. Web-sourced and URL-verified.
+# Keyed by output/ directory name. Rendered as a callout near the top of
+# each topic page (existing prose is never modified).
+
+llm-serving-inference:
+  as_of: "May 2026"
+  points:
+    - "Disaggregated serving (separate prefill and decode pools) is now the mainstream production architecture, not a niche optimization. **NVIDIA Dynamo 1.0 reached GA at GTC, March 2026**, with framework-agnostic KV-cache offloading (GPU → CPU RAM → SSD → network) and LLM-aware routing."
+    - "Reported gains: up to ~7× throughput on DeepSeek-R1 (Blackwell) and up to ~50× MoE throughput on GB300 NVL72 vs Hopper — driven by disaggregation + FP4 + smarter KV reuse."
+    - "KV-cache tier offloading via **LMCache** integrated with Dynamo 1.0; SGLang, TensorRT-LLM, and vLLM are all supported backends. Treat prefill/decode disaggregation as a primary design axis when sizing serving infra."
+  sources:
+    - title: "NVIDIA — Introducing Dynamo (distributed inference for reasoning models)"
+      url: https://developer.nvidia.com/blog/introducing-nvidia-dynamo-a-low-latency-distributed-inference-framework-for-scaling-reasoning-ai-models/
+    - title: "NVIDIA — Dynamo 1.0 production-ready, multi-node inference"
+      url: https://developer.nvidia.com/blog/nvidia-dynamo-1-production-ready/
+    - title: "LMCache + NVIDIA Dynamo 1.0 (KV-cache offloading)"
+      url: https://blog.lmcache.ai/en/2026/03/16/lmcache-nvidia-dynamo-1-0-a-match-made-in-inference-heaven/
+    - title: "TensorRT-LLM — Disaggregated Serving"
+      url: https://nvidia.github.io/TensorRT-LLM/blogs/tech_blog/blog5_Disaggregated_Serving_in_TensorRT-LLM.html
+
+agentic-design-patterns:
+  as_of: "May 2026"
+  points:
+    - "Agent protocols have standardized fast. **MCP** (agent↔tool layer) is the de-facto default — ~97M downloads and a majority of enterprise AI teams running at least one MCP-backed agent in production by April 2026."
+    - "**A2A** (agent↔agent layer) reached a stable **v1.0** under the Linux Foundation: 150+ supporting organizations, integrations across Google/Microsoft/AWS, enterprise multi-tenancy and modernized security flows. MCP and A2A are complementary, not competing."
+    - "Design implication: treat MCP for tool/data access and A2A for cross-org agent coordination as first-class architectural choices. See the dedicated **Agent Protocols: MCP & A2A** topic."
+  sources:
+    - title: "Linux Foundation — A2A surpasses 150 organizations, v1.0, production use"
+      url: https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year
+    - title: "Model Context Protocol — official site"
+      url: https://modelcontextprotocol.io/
+    - title: "A2A Protocol — official site"
+      url: https://a2a-protocol.org/
+
+retrieval-augmented-generation:
+  as_of: "May 2026"
+  points:
+    - "2026-standard RAG practice now assumes: agentic/iterative retrieval, hybrid (dense + sparse) search with a reranking stage, and **contextual retrieval** (prepend chunk-situating context before embedding) as a default quality lever."
+    - "**GraphRAG** (entity/relationship graphs over the corpus) is mainstream for multi-hop and global-summary questions where flat top-k retrieval underperforms."
+    - "Late-interaction / multi-vector retrieval (ColBERT, and **ColPali** for visually-rich documents) is a production option for high-recall and document-image retrieval. Evaluate RAG with structured metrics (faithfulness, context precision/recall) via **RAGAS**."
+  sources:
+    - title: "Anthropic — Contextual Retrieval"
+      url: https://www.anthropic.com/news/contextual-retrieval
+    - title: "Microsoft — GraphRAG"
+      url: https://microsoft.github.io/graphrag/
+    - title: "ColPali — efficient document retrieval with vision-language models (paper)"
+      url: https://arxiv.org/abs/2407.01449
+    - title: "RAGAS — RAG evaluation framework"
+      url: https://docs.ragas.io/
+
+evals-in-ai:
+  as_of: "May 2026"
+  points:
+    - "Eval practice in 2026 emphasizes **agentic / trajectory evaluation** (judging multi-step tool-use paths, not just final answers) and explicit handling of LLM-as-judge bias and reliability."
+    - "Common stack additions: **UK AISI Inspect** for rigorous, reproducible model/agent evals; **RAGAS** for RAG-specific metrics; live human-preference signals via **LMArena**; HELM remains a standardized academic benchmark."
+  sources:
+    - title: "UK AI Safety Institute — Inspect evals framework"
+      url: https://inspect.aisi.org.uk/
+    - title: "RAGAS — RAG evaluation framework"
+      url: https://docs.ragas.io/
+    - title: "LMArena — live human-preference leaderboard"
+      url: https://lmarena.ai/
+    - title: "Stanford CRFM — HELM"
+      url: https://crfm.stanford.edu/helm/
+
+cost-optimization-ai-pipeline:
+  as_of: "May 2026"
+  points:
+    - "Reasoning models change the cost model: **thinking/reasoning tokens** are billed and can dominate spend. Budget and cap reasoning effort per use case, and measure cost per *successful* task, not per call."
+    - "Disaggregated serving (NVIDIA Dynamo 1.0) plus KV-cache tier offloading materially shifts the self-hosted TCO curve for high-volume and reasoning workloads — revisit API-vs-self-hosted thresholds with these in mind."
+  sources:
+    - title: "Anthropic — Extended thinking (reasoning-token economics)"
+      url: https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking
+    - title: "NVIDIA — Dynamo 1.0 production-ready"
+      url: https://developer.nvidia.com/blog/nvidia-dynamo-1-production-ready/
+
+fine-tuning-llm:
+  as_of: "May 2026"
+  points:
+    - "Reinforcement learning with verifiable rewards (RLVR) — GRPO-style, popularized by **DeepSeek-R1** — is the dominant recipe for eliciting/distilling reasoning. The topic's GRPO coverage maps directly to this; frame it as reasoning fine-tuning + reasoning distillation into smaller models."
+  sources:
+    - title: "DeepSeek-R1 — incentivizing reasoning via RL (paper)"
+      url: https://arxiv.org/abs/2501.12948
+    - title: "Hugging Face — TRL (GRPO, DPO, SFT)"
+      url: https://huggingface.co/docs/trl/index

@@ -1,0 +1,23 @@
+# PDF build config. Inherits everything from mkdocs.yml and adds the
+# with-pdf plugin. Kept separate so `mkdocs serve` / `mkdocs build` stay
+# fast and don't require WeasyPrint locally.
+#
+#   Local: ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs.pdf.yml   (needs WeasyPrint libs)
+#   CI:    same, run after the strict gate (see .github/workflows/deploy.yml)
+#
+# NOTE: mkdocs replaces (does not merge) the `plugins` list from the parent,
+# so the full list is restated here.
+
+INHERIT: mkdocs.yml
+
+plugins:
+  - search
+  - awesome-pages
+  - with-pdf:
+      author: Anuj Sadani
+      copyright: "© 2026 Anuj Sadani — Licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) — anuj.k.sadani@gmail.com — https://asadani.github.io/"
+      cover_title: AI Engineer Learning Hub
+      cover_subtitle: Principal-level study notes for AI-era engineers
+      output_path: pdf/ai-engineer-learning-hub.pdf
+      toc_level: 2
+      enabled_if_env: ENABLE_PDF_EXPORT

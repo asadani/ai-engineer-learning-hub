@@ -1,0 +1,144 @@
+# Cross-topic glossary. `definition` must be a single concise sentence
+# (it becomes a hover tooltip site-wide via pymdownx abbreviations).
+# `url` (optional) is shown only on the Glossary page.
+
+terms:
+  - term: RAG
+    definition: "Retrieval-Augmented Generation: grounding LLM output in documents fetched at inference time."
+    url: https://arxiv.org/abs/2005.11401
+  - term: Embedding
+    definition: "A dense numeric vector representing the meaning of text so similar items sit close together."
+    url: https://www.sbert.net/
+  - term: Vector database
+    definition: "A store optimized for similarity search over embedding vectors."
+    url: https://www.pinecone.io/learn/vector-database/
+  - term: ANN
+    definition: "Approximate Nearest Neighbor search: fast similarity lookup that trades exactness for speed."
+    url: https://en.wikipedia.org/wiki/Nearest_neighbor_search
+  - term: Reranking
+    definition: "A second-stage model that reorders retrieved candidates by relevance to the query."
+  - term: Chunking
+    definition: "Splitting documents into smaller passages before embedding and indexing."
+  - term: Fine-tuning
+    definition: "Continuing training of a pretrained model on task- or domain-specific data."
+    url: https://huggingface.co/docs/transformers/training
+  - term: LoRA
+    definition: "Low-Rank Adaptation: fine-tuning by training small added matrices instead of all weights."
+    url: https://arxiv.org/abs/2106.09685
+  - term: QLoRA
+    definition: "LoRA applied on top of a quantized base model to cut fine-tuning memory dramatically."
+    url: https://arxiv.org/abs/2305.14314
+  - term: PEFT
+    definition: "Parameter-Efficient Fine-Tuning: methods that update only a small fraction of model parameters."
+    url: https://huggingface.co/docs/peft/index
+  - term: RLHF
+    definition: "Reinforcement Learning from Human Feedback: aligning a model using human preference signals."
+  - term: DPO
+    definition: "Direct Preference Optimization: preference alignment without a separate reward model."
+    url: https://arxiv.org/abs/2305.18290
+  - term: Quantization
+    definition: "Representing model weights/activations in fewer bits to reduce memory and speed inference."
+  - term: KV cache
+    definition: "Cached attention keys/values from prior tokens so each new token is cheap to generate."
+  - term: PagedAttention
+    definition: "A memory technique that pages the KV cache to boost LLM serving throughput."
+    url: https://arxiv.org/abs/2309.06180
+  - term: Continuous batching
+    definition: "Dynamically adding/removing requests from a running inference batch to maximize GPU use."
+  - term: Throughput
+    definition: "Work completed per unit time, e.g. tokens or requests per second."
+  - term: Latency
+    definition: "Time to complete a single request, end to end."
+  - term: TTFT
+    definition: "Time To First Token: latency from request until the first output token streams back."
+  - term: Token
+    definition: "The sub-word unit LLMs read and generate; billing and context limits are counted in tokens."
+  - term: Context window
+    definition: "The maximum number of tokens a model can attend to in one request."
+  - term: Prompt caching
+    definition: "Reusing computation for a repeated prompt prefix to cut cost and latency."
+    url: https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching
+  - term: Agent
+    definition: "An LLM-driven system that plans and takes actions via tools to accomplish a goal."
+    url: https://www.anthropic.com/research/building-effective-agents
+  - term: ReAct
+    definition: "An agent pattern interleaving reasoning steps with tool actions."
+    url: https://arxiv.org/abs/2210.03629
+  - term: Tool use
+    definition: "Letting a model call external functions/APIs via structured outputs."
+    url: https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview
+  - term: Orchestration
+    definition: "A central coordinator explicitly directs each step of a workflow."
+  - term: Choreography
+    definition: "Services react to events independently with no central coordinator."
+  - term: Saga
+    definition: "A sequence of local transactions with compensating actions for distributed consistency."
+    url: https://microservices.io/patterns/data/saga.html
+  - term: Idempotency
+    definition: "An operation that produces the same result no matter how many times it is applied."
+  - term: Event-driven architecture
+    definition: "A style where components communicate by producing and reacting to events."
+    url: https://martinfowler.com/articles/201701-event-driven.html
+  - term: Message broker
+    definition: "Middleware that routes messages between producers and consumers."
+  - term: Dead-letter queue
+    definition: "A queue holding messages that could not be processed successfully."
+  - term: Eventual consistency
+    definition: "A model where replicas converge to the same state given enough time without updates."
+  - term: Data mesh
+    definition: "A decentralized approach treating data as a product owned by domain teams."
+    url: https://martinfowler.com/articles/data-mesh-principles.html
+  - term: Data contract
+    definition: "An enforced agreement on the schema and semantics of data between producer and consumer."
+    url: https://docs.getdbt.com/docs/collaborate/govern/model-contracts
+  - term: Feature store
+    definition: "Infrastructure that stores and serves features consistently for training and inference."
+    url: https://docs.feast.dev/
+  - term: Training-serving skew
+    definition: "Discrepancy between features computed at training time and at serving time."
+  - term: Data drift
+    definition: "A shift in the input distribution P(X) over time."
+  - term: Concept drift
+    definition: "A shift in the relationship P(Y|X) so past patterns no longer hold."
+  - term: MLOps
+    definition: "Engineering practices for reliably building, deploying, and operating ML in production."
+    url: https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning
+  - term: Model registry
+    definition: "A versioned catalog of trained models and their lifecycle stage."
+  - term: Experiment tracking
+    definition: "Recording parameters, metrics, and artifacts across training runs for comparison."
+    url: https://mlflow.org/docs/latest/index.html
+  - term: Precision
+    definition: "Of the items predicted positive, the fraction that are actually positive."
+    url: https://scikit-learn.org/stable/modules/model_evaluation.html
+  - term: Recall
+    definition: "Of the actual positives, the fraction the model correctly identified."
+    url: https://scikit-learn.org/stable/modules/model_evaluation.html
+  - term: F1 score
+    definition: "The harmonic mean of precision and recall."
+    url: https://en.wikipedia.org/wiki/F-score
+  - term: ROC AUC
+    definition: "Area under the ROC curve: probability a random positive ranks above a random negative."
+  - term: Confusion matrix
+    definition: "A table of true/false positives and negatives for a classifier."
+  - term: Eval
+    definition: "A structured test that scores a model's quality on representative inputs."
+    url: https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests
+  - term: Hallucination
+    definition: "Confident model output that is unsupported or factually wrong."
+  - term: SOLID
+    definition: "Five OO design principles: SRP, OCP, LSP, ISP, DIP."
+    url: https://en.wikipedia.org/wiki/SOLID
+  - term: Dependency inversion
+    definition: "Depend on abstractions, not concrete implementations."
+  - term: Liskov substitution
+    definition: "Subtypes must be usable anywhere their base type is expected."
+  - term: Design pattern
+    definition: "A reusable, named solution to a recurring software design problem."
+    url: https://refactoring.guru/design-patterns
+  - term: Singleton
+    definition: "A pattern ensuring a class has exactly one shared instance."
+  - term: Factory
+    definition: "A pattern that creates objects without exposing concrete construction logic."
+  - term: Strategy
+    definition: "A pattern that makes interchangeable algorithms selectable at runtime."

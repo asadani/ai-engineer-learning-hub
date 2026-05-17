@@ -1,0 +1,77 @@
+# Free / free-to-audit courses & certifications. Every URL is WebFetch-verified.
+# `clusters` tags map to cluster titles in clusters.yml.
+
+providers:
+  - name: "DeepLearning.AI"
+    note: "Short courses are free; many in collaboration with OpenAI, Anthropic, Hugging Face."
+    courses:
+      - title: "Short Courses catalog (LLM apps, RAG, agents, fine-tuning)"
+        url: https://www.deeplearning.ai/short-courses/
+        cost: Free
+        clusters: ["LLM Engineering", "ML Platform & Ops"]
+      - title: "Machine Learning Specialization (audit free)"
+        url: https://www.coursera.org/specializations/machine-learning-introduction
+        cost: "Free to audit"
+        clusters: ["ML Platform & Ops"]
+
+  - name: "Hugging Face"
+    note: "Open, hands-on courses with notebooks."
+    courses:
+      - title: "LLM Course"
+        url: https://huggingface.co/learn/llm-course
+        cost: Free
+        clusters: ["LLM Engineering"]
+      - title: "AI Agents Course"
+        url: https://huggingface.co/learn/agents-course
+        cost: Free
+        clusters: ["LLM Engineering"]
+
+  - name: "Google"
+    courses:
+      - title: "Machine Learning Crash Course"
+        url: https://developers.google.com/machine-learning/crash-course
+        cost: Free
+        clusters: ["ML Platform & Ops"]
+      - title: "Google Cloud Skills Boost — Generative AI learning path"
+        url: https://www.cloudskillsboost.google/paths/118
+        cost: "Free (intro modules)"
+        clusters: ["LLM Engineering", "ML Platform & Ops"]
+
+  - name: "Microsoft"
+    courses:
+      - title: "Generative AI for Beginners"
+        url: https://microsoft.github.io/generative-ai-for-beginners/
+        cost: Free
+        clusters: ["LLM Engineering"]
+      - title: "AI for Beginners"
+        url: https://microsoft.github.io/AI-For-Beginners/
+        cost: Free
+        clusters: ["ML Platform & Ops"]
+
+  - name: "Anthropic"
+    courses:
+      - title: "Anthropic Academy — Claude & API courses"
+        url: https://www.anthropic.com/learn
+        cost: Free
+        clusters: ["LLM Engineering"]
+
+  - name: "AWS"
+    courses:
+      - title: "AWS Skill Builder (free digital training)"
+        url: https://skillbuilder.aws/
+        cost: "Free tier"
+        clusters: ["ML Platform & Ops", "Architecture"]
+
+  - name: "fast.ai"
+    courses:
+      - title: "Practical Deep Learning for Coders"
+        url: https://course.fast.ai/
+        cost: Free
+        clusters: ["ML Platform & Ops"]
+
+  - name: "freeCodeCamp"
+    courses:
+      - title: "Machine Learning with Python (certification)"
+        url: https://www.freecodecamp.org/learn/machine-learning-with-python/
+        cost: Free
+        clusters: ["ML Platform & Ops", "Software Design"]

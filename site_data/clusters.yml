@@ -1,0 +1,136 @@
+# Cluster + topic taxonomy for the learning site.
+# `dir` = directory name under output/ (= prep-master slugify(topic),
+#         which is: topic.lower(), non-alphanumeric runs -> "-", strip "-").
+# `slug` = URL/path segment used under docs/.
+# `related` = cross-cluster topics to surface in "Related Topics"
+#             (same-cluster siblings are added automatically by build_docs.py).
+
+site:
+  name: "AI Engineer Learning Hub"
+  tagline: "Principal-level study notes for AI-era engineers — clustered, cross-linked, and sourced."
+
+clusters:
+  - slug: llm-engineering
+    title: "LLM Engineering"
+    icon: material/robot-happy
+    description: "Building, adapting, serving, and operating large language models in production."
+    topics:
+      - dir: retrieval-augmented-generation
+        slug: retrieval-augmented-generation
+        title: "Retrieval-Augmented Generation (RAG)"
+        blurb: "Grounding LLM responses in external knowledge at inference time."
+        related: [fine-tuning-llm, llm-serving-inference, evals-in-ai, context-engineering]
+      - dir: fine-tuning-llm
+        slug: fine-tuning-llm
+        title: "Fine-Tuning LLMs"
+        blurb: "Adapting base models with full, PEFT/LoRA, and preference-tuning methods."
+        related: [retrieval-augmented-generation, reasoning-models-and-inference-time-compute, mlops, cost-optimization-ai-pipeline]
+      - dir: llm-serving-inference
+        slug: llm-serving-inference
+        title: "LLM Serving & Inference"
+        blurb: "Latency, throughput, batching, and KV-cache economics of serving LLMs."
+        related: [cost-optimization-ai-pipeline, reasoning-models-and-inference-time-compute, mlops]
+      - dir: cost-optimization-ai-pipeline
+        slug: cost-optimization-ai-pipeline
+        title: "Cost Optimization for AI Pipelines"
+        blurb: "Token, compute, and infrastructure cost levers across the AI stack."
+        related: [llm-serving-inference, reasoning-models-and-inference-time-compute, fine-tuning-llm]
+      - dir: reasoning-models-and-inference-time-compute
+        slug: reasoning-models-inference-time-compute
+        title: "Reasoning Models & Inference-Time Compute"
+        blurb: "Test-time scaling, extended thinking, RLVR, and reasoning distillation."
+        related: [fine-tuning-llm, llm-serving-inference, cost-optimization-ai-pipeline, evals-in-ai]
+      - dir: multimodal-ai-and-vision-language-models
+        slug: multimodal-ai-vision-language-models
+        title: "Multimodal AI & Vision-Language Models"
+        blurb: "Working across text, image, audio, and video in one system."
+        related: [retrieval-augmented-generation, llm-serving-inference, fine-tuning-llm]
+
+  - slug: agents-orchestration
+    title: "Agents & Orchestration"
+    icon: material/account-network
+    description: "Designing, connecting, and steering autonomous and tool-using AI systems."
+    topics:
+      - dir: agentic-design-patterns
+        slug: agentic-design-patterns
+        title: "Agentic Design Patterns"
+        blurb: "Production patterns for tool-using, planning, multi-step AI agents."
+        related: [agent-protocols-mcp-and-a2a, context-engineering, retrieval-augmented-generation, evals-in-ai, event-driven-architecture]
+      - dir: agent-protocols-mcp-and-a2a
+        slug: agent-protocols-mcp-a2a
+        title: "Agent Protocols: MCP & A2A"
+        blurb: "MCP for agent↔tool access; A2A for cross-org agent↔agent coordination."
+        related: [agentic-design-patterns, context-engineering, event-driven-architecture]
+      - dir: context-engineering
+        slug: context-engineering
+        title: "Context Engineering"
+        blurb: "Budgeting, assembling, and compacting the context an LLM sees."
+        related: [prompt-engineering, retrieval-augmented-generation, agentic-design-patterns]
+      - dir: prompt-engineering
+        slug: prompt-engineering
+        title: "Prompt Engineering"
+        blurb: "Reliable prompting techniques and patterns for production systems."
+        related: [context-engineering, fine-tuning-llm, evals-in-ai]
+
+  - slug: ml-platform-ops
+    title: "ML Platform & Ops"
+    icon: material/cog-sync
+    description: "Reliability, evaluation, observability, and safety for ML/AI in production."
+    topics:
+      - dir: mlops
+        slug: mlops
+        title: "MLOps"
+        blurb: "Feature stores, CI/CD for models, drift monitoring, and retraining."
+        related: [evals-in-ai, llm-observability-and-llmops, cost-optimization-ai-pipeline, data-driven-architecture]
+      - dir: evals-in-ai
+        slug: evals-in-ai
+        title: "Evals in AI"
+        blurb: "Designing trustworthy evaluations for LLM and ML systems."
+        related: [precision-recall-f1-and-ai-metrics, llm-observability-and-llmops, retrieval-augmented-generation, agentic-design-patterns]
+      - dir: precision-recall-f1-and-ai-metrics
+        slug: precision-recall-f1-and-ai-metrics
+        title: "Precision, Recall, F1 & AI Metrics"
+        blurb: "Classification and ranking metrics, and when each is the right one."
+        related: [evals-in-ai, mlops]
+      - dir: llm-observability-and-llmops
+        slug: llm-observability-llmops
+        title: "LLM Observability & LLMOps"
+        blurb: "Tracing, token/cost telemetry, and OTel GenAI conventions for LLM apps."
+        related: [mlops, evals-in-ai, cost-optimization-ai-pipeline, agentic-design-patterns]
+      - dir: ai-safety-and-guardrails
+        slug: ai-safety-guardrails
+        title: "AI Safety & Guardrails"
+        blurb: "OWASP LLM Top 10, prompt-injection defense, moderation, red-teaming."
+        related: [agentic-design-patterns, evals-in-ai, prompt-engineering]
+
+  - slug: architecture
+    title: "Architecture"
+    icon: material/sitemap
+    description: "System architecture styles for data- and event-intensive applications."
+    topics:
+      - dir: event-driven-architecture
+        slug: event-driven-architecture
+        title: "Event-Driven Architecture"
+        blurb: "Messaging, sagas, choreography vs orchestration, and observability."
+        related: [data-driven-architecture, agentic-design-patterns]
+      - dir: data-driven-architecture
+        slug: data-driven-architecture
+        title: "Data-Driven Architecture"
+        blurb: "Designing systems around data flow, contracts, and lineage."
+        related: [event-driven-architecture, mlops]
+
+  - slug: software-design
+    title: "Software Design"
+    icon: material/language-python
+    description: "Timeless object-oriented design principles and patterns in Python."
+    topics:
+      - dir: solid-principles-in-python
+        slug: solid-principles-in-python
+        title: "SOLID Principles in Python"
+        blurb: "Five OO design principles for changeable, testable code."
+        related: [top-5-design-patterns-in-python]
+      - dir: top-5-design-patterns-in-python
+        slug: top-5-design-patterns-in-python
+        title: "Top 5 Design Patterns in Python"
+        blurb: "The most-used GoF patterns, Pythonically applied."
+        related: [solid-principles-in-python]
